@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Caio Vinicius Osorio dos Santos — Portfólio</title>
+<meta name="description" content="Portfólio acadêmico e profissional de Caio Vinicius Osorio dos Santos, desenvolvedor full stack.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   TOKENS
+   ============================================================ */
+:root{
+  --roxo:        #6d28d9;
+  --roxo-escuro: #5b21b6;
+  --roxo-claro:  #ede9fe;
+  --fundo:       #f6f6fd;
+  --card:        #ffffff;
+  --borda:       #e6e6f0;
+  --texto:       #1f2233;
+  --texto-suave: #5c6070;
+  --azul-aberto: #eff6ff;
+  --borda-ativa: #bfdbfe;
+  --raio:        10px;
+  --sombra:      0 1px 3px rgba(23, 20, 60, .06);
+}
+
+*{ box-sizing: border-box; }
+
+html{ scroll-behavior: smooth; }
+
+body{
+  margin: 0;
+  background: var(--fundo);
+  color: var(--texto);
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ============================================================
+   LAYOUT
+   ============================================================ */
+.layout{
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+  display: grid;
+  grid-template-columns: 330px 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+.painel{
+  background: var(--card);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+}
+
+/* ============================================================
+   COLUNA ESQUERDA — PERFIL
+   ============================================================ */
+.perfil{
+  border-left: 4px solid var(--roxo);
+  padding: 32px 26px;
+  position: sticky;
+  top: 24px;
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+}
+
+.perfil::-webkit-scrollbar{ width: 6px; }
+.perfil::-webkit-scrollbar-thumb{ background: #dcdce8; border-radius: 3px; }
+
+.foto{
+  display: block;
+  width: 108px;
+  height: 108px;
+  margin: 0 auto 18px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--roxo-claro);
+}
+
+.nome{
+  margin: 0;
+  font-size: 23px;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: -.3px;
+  line-height: 1.25;
+}
+
+.cargo{
+  margin: 8px 0 0;
+  text-align: center;
+  color: var(--texto-suave);
+  font-size: 14px;
+}
+
+.divisor{
+  border: 0;
+  border-top: 1px solid var(--borda);
+  margin: 24px 0 20px;
+}
+
+.perfil h2{
+  font-size: 17px;
+  font-weight: 700;
+  margin: 26px 0 12px;
+}
+
+.perfil h2:first-of-type{ margin-top: 0; }
+
+.perfil p{
+  margin: 0 0 14px;
+  text-align: justify;
+  hyphens: auto;
+  color: #33374a;
+}
+
+/* Botões de contato */
+.contatos{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.btn-contato{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 16px;
+  border-radius: 8px;
+  background: #17181d;
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: transform .15s ease, background .15s ease;
+}
+.btn-contato:hover{ background: #2b2d36; transform: translateY(-1px); }
+.btn-contato.linkedin{ background: #0a66c2; }
+.btn-contato.linkedin:hover{ background: #0b5cab; }
+.btn-contato svg{ width: 17px; height: 17px; fill: currentColor; }
+
+/* Chips de conhecimentos */
+.chips{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip{
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 14px;
+  border: 1px solid var(--borda);
+  border-radius: 999px;
+  font-size: 13.5px;
+  background: #fff;
+  white-space: nowrap;
+}
+.chip span{ font-size: 13px; line-height: 1; }
+
+/* ============================================================
+   COLUNA DIREITA — PROJETOS
+   ============================================================ */
+.projetos{ padding: 28px 30px 30px; }
+
+.projetos > h1{
+  margin: 0 0 22px;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -.4px;
+}
+
+/* Accordion */
+.item{
+  border: 1px solid var(--borda);
+  border-radius: 8px;
+  margin-bottom: 10px;
+  overflow: hidden;
+  background: #fff;
+}
+.item.aberto{ border-color: var(--borda-ativa); }
+
+.cabecalho{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 20px;
+  background: none;
+  border: 0;
+  font: inherit;
+  font-size: 16px;
+  color: var(--texto);
+  text-align: left;
+  cursor: pointer;
+  transition: background .18s ease;
+}
+.cabecalho:hover{ background: #fafaff; }
+.item.aberto .cabecalho{ background: var(--azul-aberto); font-weight: 500; }
+.cabecalho:focus-visible{ outline: 2px solid var(--roxo); outline-offset: -2px; }
+
+.seta{
+  flex: none;
+  width: 18px;
+  height: 18px;
+  stroke: #6b7280;
+  stroke-width: 2;
+  fill: none;
+  transition: transform .25s ease;
+}
+.item.aberto .seta{ transform: rotate(180deg); }
+
+.conteudo{
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows .28s ease;
+}
+.item.aberto .conteudo{ grid-template-rows: 1fr; }
+
+.conteudo > div{ overflow: hidden; }
+
+.corpo{ padding: 6px 22px 26px; }
+
+.corpo p{
+  margin: 0 0 16px;
+  text-align: justify;
+  hyphens: auto;
+  color: #33374a;
+}
+
+.corpo h3{
+  font-size: 16px;
+  font-weight: 700;
+  margin: 26px 0 12px;
+}
+
+.corpo ul{
+  margin: 0;
+  padding-left: 20px;
+  color: #33374a;
+}
+.corpo li{ margin-bottom: 8px; }
+
+/* Caixa do repositório */
+.repo{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  background: #fafafc;
+  border: 1px solid var(--borda);
+  border-radius: 8px;
+  padding: 16px 18px;
+  margin: 22px 0 4px;
+}
+.repo span{ font-size: 15px; }
+
+.btn-repo{
+  display: inline-block;
+  padding: 10px 18px;
+  border-radius: 7px;
+  background: var(--roxo);
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  transition: background .15s ease, transform .15s ease;
+}
+.btn-repo:hover{ background: var(--roxo-escuro); transform: translateY(-1px); }
+
+/* Papel exercido no projeto */
+.papel{
+  display: inline-block;
+  background: var(--roxo-claro);
+  color: var(--roxo-escuro);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 999px;
+  margin: 2px 6px 14px 0;
+}
+
+/* Grade de tecnologias */
+.techs{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 12px;
+}
+
+.tech{
+  border: 1px solid var(--borda);
+  border-left: 3px solid var(--roxo);
+  border-radius: 8px;
+  padding: 14px 16px;
+}
+.tech b{
+  display: block;
+  color: var(--roxo-escuro);
+  font-size: 15px;
+  margin-bottom: 3px;
+}
+.tech small{
+  color: var(--texto-suave);
+  font-size: 13.5px;
+  line-height: 1.45;
+  display: block;
+}
+
+/* Legenda de níveis */
+.niveis{ margin: 0; }
+.niveis dt{
+  font-weight: 700;
+  margin-top: 14px;
+}
+.niveis dt:first-child{ margin-top: 0; }
+.niveis dd{
+  margin: 4px 0 0;
+  color: var(--texto-suave);
+}
+
+/* ============================================================
+   RESPONSIVO
+   ============================================================ */
+@media (max-width: 900px){
+  .layout{
+    grid-template-columns: 1fr;
+    padding: 24px 16px 60px;
+    gap: 20px;
+  }
+  .perfil{
+    position: static;
+    max-height: none;
+    padding: 26px 22px;
+  }
+  .projetos{ padding: 22px 18px 26px; }
+  .projetos > h1{ font-size: 22px; }
+  .corpo{ padding: 6px 16px 22px; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{ transition: none !important; scroll-behavior: auto !important; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="layout">
+
+  <!-- ==========================================================
+       COLUNA ESQUERDA — PERFIL
+       ========================================================== -->
+  <aside class="painel perfil">
+
+    <!-- Troque o src pela sua foto: img/perfil.jpg -->
+    <img class="foto" src="img/perfil.jpg" alt="Foto de Caio Vinicius Osorio dos Santos">
+
+    <h1 class="nome">Caio Vinicius Osorio dos Santos</h1>
+    <p class="cargo">Estudante de Análise e Desenvolvimento de Sistemas | Desenvolvedor Pleno na Falco Sistemas</p>
+
+    <hr class="divisor">
+
+    <h2>Introdução</h2>
+    <p>Me chamo Caio Vinicius Osorio dos Santos, sou estudante do 6º semestre de Análise e Desenvolvimento de Sistemas e atuo como Desenvolvedor Pleno na Falco Sistemas. Minha trajetória na programação começou no meu primeiro grande emprego, na Embraer, onde trabalhei como eletricista montador de aeronaves. Foi ali que fui exposto a projetos e desafios técnicos que exigiam raciocínio lógico para serem resolvidos e, durante os estudos que fiz para dar conta deles, acabei encontrando o Python. Aquele foi o ponto de partida do interesse pela área que me trouxe até aqui.</p>
+
+    <p>Antes de iniciar minha graduação em tecnologia, atuei por dois anos como eletricista de aeronaves. Além da fabricação de toda a cablagem dos aviões da Embraer, o dia a dia envolvia problemas sistêmicos que precisavam ser resolvidos com lógica e método — algo que me aproximou naturalmente do desenvolvimento. Com o avanço nos estudos em Python e o crescimento da curiosidade, ingressei na Fatec com o objetivo de estruturar e aprofundar esse conhecimento.</p>
+
+    <p>Desde então, venho construindo experiência em projetos acadêmicos e profissionais que passam por front-end, back-end, modelagem de dados e integração de modelos de linguagem, frequentemente acumulando papéis técnicos e de gestão, como Scrum Master e Product Owner.</p>
+
+    <p>Para os próximos anos, meu objetivo é seguir evoluindo tecnicamente e academicamente, com uma pós-graduação e, futuramente, um mestrado. Tenho interesse especial por inteligência artificial executada localmente, com modelos rodando na própria infraestrutura da empresa — soluções que apoiam o desenvolvimento em ambientes corporativos sem abrir mão da privacidade dos dados nem depender de APIs externas.</p>
+
+    <h2>Contatos</h2>
+    <div class="contatos">
+      <a class="btn-contato" href="https://github.com/User-Business" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3Z"/></svg>
+        GitHub
+      </a>
+      <a class="btn-contato linkedin" href="https://www.linkedin.com/in/caiovosorio/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 20.4h-3.5v-5.6c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9v5.7H9.4V9h3.4v1.6h.1a3.7 3.7 0 0 1 3.3-1.8c3.6 0 4.2 2.3 4.2 5.4v6.2ZM5.3 7.4a2 2 0 1 1 0-4.1 2 2 0 0 1 0 4.1ZM7.1 20.4H3.6V9h3.5v11.4ZM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 .9.8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7c0-.9-.8-1.7-1.8-1.7Z"/></svg>
+        LinkedIn
+      </a>
+    </div>
+
+    <h2>Principais Conhecimentos</h2>
+    <div class="chips">
+      <div class="chip"><span>☕</span>Java</div>
+      <div class="chip"><span>🍃</span>Spring Boot</div>
+      <div class="chip"><span>📘</span>Swagger / OpenAPI</div>
+      <div class="chip"><span>🟨</span>JavaScript</div>
+      <div class="chip"><span>🔷</span>TypeScript</div>
+      <div class="chip"><span>💚</span>Vue.js</div>
+      <div class="chip"><span>⚛️</span>React</div>
+      <div class="chip"><span>🐍</span>Python</div>
+      <div class="chip"><span>🐹</span>Golang</div>
+      <div class="chip"><span>🐬</span>MySQL</div>
+      <div class="chip"><span>🐘</span>PostgreSQL</div>
+      <div class="chip"><span>🍀</span>MongoDB</div>
+      <div class="chip"><span>🔶</span>Oracle</div>
+      <div class="chip"><span>🏛️</span>Data Warehouse</div>
+      <div class="chip"><span>🦙</span>Ollama</div>
+      <div class="chip"><span>🤖</span>LLM</div>
+      <div class="chip"><span>🤗</span>Hugging Face</div>
+    </div>
+
+  </aside>
+
+  <!-- ==========================================================
+       COLUNA DIREITA — PROJETOS / SEMESTRES
+       ========================================================== -->
+  <main class="painel projetos">
+    <h1>Meus Projetos / Semestres</h1>
+
+    <!-- ---------- SEMESTRE 1 ---------- -->
+    <section class="item aberto">
+      <button class="cabecalho" aria-expanded="true" aria-controls="sem1">
+        Semestre 1 — Byte Benders (20XX-X)
+        <svg class="seta" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="conteudo" id="sem1"><div>
+        <div class="corpo">
+
+          <span class="papel">Scrum Master</span><span class="papel">Dev Team</span>
+
+          <p>Muitas equipes adotam o <strong>SCRUM</strong> sem partir de uma base comum sobre o framework: cada pessoa aprende por uma fonte diferente, papéis e cerimônias acabam sendo aplicados pela metade e não existe nenhum instrumento objetivo para medir o quanto o time realmente evoluiu na adoção da metodologia. O resultado é um processo que soa ágil no vocabulário, mas não na prática, sem registro algum que permita acompanhar essa maturidade ao longo do tempo.</p>
+
+          <p>Para resolver isso, o grupo <strong>Byte Benders</strong> desenvolveu um site que funciona como um curso online completo sobre SCRUM, cobrindo todos os processos e artefatos do framework. A plataforma foi organizada em módulos: uma seção de <strong>conteúdo teórico</strong>, com papéis, cerimônias, artefatos e princípios ágeis; uma seção de <strong>aplicações práticas</strong>, com exemplos reais que permitem ao time aplicar o método de forma padronizada; e <strong>formulários de avaliação</strong> parcial e final, com os quais a equipe mede a própria adoção do SCRUM e sustenta o autogerenciamento e a melhoria contínua. O sistema foi construído em <strong>Python com Flask</strong>, prototipado no Figma e validado com o cliente antes do desenvolvimento, sendo entregue ao longo de quatro Sprints. Este foi o projeto da disciplina de Aprendizagem por Projetos Integrados (API) do primeiro semestre de ADS na FATEC.</p>
+
+          <div class="repo">
+            <span>Repositório do projeto</span>
+            <a class="btn-repo" href="https://github.com/User-Business" target="_blank" rel="noopener">Acessar no GitHub</a>
+          </div>
+
+          <h3>Tecnologias Utilizadas</h3>
+          <div class="techs">
+            <div class="tech"><b>Python e Flask</b><small>Back-end, rotas e templates reutilizáveis</small></div>
+            <div class="tech"><b>HTML e CSS</b><small>Estrutura e estilização das páginas</small></div>
+            <div class="tech"><b>Bootstrap</b><small>Responsividade e componentes de interface</small></div>
+            <div class="tech"><b>Figma</b><small>Protótipo navegável e validação com o cliente</small></div>
+            <div class="tech"><b>Git e GitHub</b><small>Versionamento e colaboração em equipe</small></div>
+          </div>
+
+          <h3>Contribuições Pessoais</h3>
+          <p>Atuei simultaneamente como <strong>Scrum Master</strong> e <strong>Dev Team</strong>, o que me deu visão completa do ciclo de desenvolvimento. Como Scrum Master, facilitei todas as cerimônias do framework — Sprint Planning, Daily Meetings, Sprint Review e Sprint Retrospective — ao longo das quatro Sprints, garantindo que a equipe seguisse o processo de forma disciplinada e produtiva.</p>
+
+          <p>Trabalhei diretamente na <strong>remoção de impedimentos</strong> que bloqueavam o progresso do time, mediando conflitos, esclarecendo dúvidas técnicas e mantendo a comunicação fluida entre os integrantes e o Product Owner. Também fui responsável pelo acompanhamento do <strong>Sprint Backlog</strong>, distribuindo tarefas entre os membros, monitorando a velocidade da equipe e conduzindo retrospectivas que levantavam pontos positivos, negativos e ações de melhoria para os ciclos seguintes.</p>
+
+          <p>No papel técnico, contribuí no <strong>front-end</strong> com HTML e CSS, construindo e estilizando as páginas do curso. Participei da implementação das <strong>rotas em Flask</strong>, integrando as telas e padronizando cabeçalho e rodapé por meio de templates reutilizáveis, e da <strong>estilização responsiva com Bootstrap</strong>, customizando componentes para diferentes resoluções. Também atuei na criação dos <strong>formulários de avaliação</strong> do método, implementando a estrutura visual e a lógica de entrada de dados, e na fase de testes e correção de bugs da Sprint 4, garantindo a qualidade final antes da entrega.</p>
+
+          <h3>Lições Aprendidas</h3>
+          <ul>
+            <li>Desenvolvi liderança servil como Scrum Master, aprendendo a facilitar o trabalho da equipe em vez de simplesmente delegar tarefas;</li>
+            <li>Aprimorei mediação de conflitos e comunicação interpessoal dentro do time;</li>
+            <li>Consolidei na prática o entendimento das cerimônias e artefatos do SCRUM — aplicando exatamente o que o projeto se propunha a ensinar;</li>
+            <li>Evoluí no front-end com HTML, CSS e Bootstrap, construindo páginas responsivas do zero;</li>
+            <li>Aprendi a usar o Flask no back-end, entendendo rotas, templates e integração entre páginas;</li>
+            <li>Desenvolvi prototipação com Figma, participando da validação do wireframe navegável com o cliente;</li>
+            <li>Evoluí no uso de Git e GitHub, com commits, merges e organização de repositório em equipe.</li>
+          </ul>
+
+        </div>
+      </div></div>
+    </section>
+
+    <!-- ---------- SEMESTRE 2 ---------- -->
+    <section class="item">
+      <button class="cabecalho" aria-expanded="false" aria-controls="sem2">
+        Semestre 2 — Chatbot com IA local para leitura de PDFs (20XX-X)
+        <svg class="seta" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="conteudo" id="sem2"><div>
+        <div class="corpo">
+
+          <span class="papel">Product Owner</span><span class="papel">Dev Team</span>
+
+          <p>Consultar uma informação específica dentro de um documento extenso costuma custar tempo e, muitas vezes, exigir familiaridade técnica com ferramentas de busca ou consulta a dados. Para o cliente interno do projeto, o Prof. Giuliano Bertoti, essa era a dor central: usuários sem perfil técnico ficavam dependentes de terceiros para extrair respostas de arquivos que já estavam ali, disponíveis, mas pouco acessíveis.</p>
+
+          <p>Para resolver isso, desenvolvemos uma <strong>aplicação desktop em Java</strong> que permite conversar com documentos em linguagem natural. O usuário faz o upload de um PDF e escreve perguntas em uma interface semelhante a um chat; o sistema extrai o conteúdo do arquivo, envia o contexto e a pergunta ao modelo <strong>Mistral</strong>, executado localmente via <strong>Ollama4j</strong>, e devolve a resposta em linguagem natural, de forma clara e objetiva. A aplicação foi dividida em dois módulos — interface de chat e motor de processamento — com <strong>MySQL</strong> armazenando histórico de conversas, metadados dos documentos e configurações. Por rodar com um modelo local, a solução funciona sem depender de APIs externas pagas e mantém os documentos dentro da própria máquina.</p>
+
+          <div class="repo">
+            <span>Repositório do projeto</span>
+            <a class="btn-repo" href="https://github.com/User-Business" target="_blank" rel="noopener">Acessar no GitHub</a>
+          </div>
+
+          <h3>Tecnologias Utilizadas</h3>
+          <div class="techs">
+            <div class="tech"><b>Java</b><small>Interface gráfica desktop e lógica de negócio</small></div>
+            <div class="tech"><b>Ollama4j e Mistral</b><small>Modelo de linguagem executado localmente</small></div>
+            <div class="tech"><b>Hugging Face</b><small>Origem do modelo utilizado no projeto</small></div>
+            <div class="tech"><b>MySQL</b><small>Histórico de conversas e metadados</small></div>
+            <div class="tech"><b>Figma</b><small>Wireframes e validação do fluxo de navegação</small></div>
+            <div class="tech"><b>Git</b><small>Controle de versão e trabalho colaborativo</small></div>
+          </div>
+
+          <h3>Contribuições Pessoais</h3>
+          <p>Atuei como <strong>Product Owner</strong> e <strong>Dev Team</strong>, acumulando a visão das necessidades do cliente e a execução técnica. Como PO, mantive o contato direto com o cliente interno e fui responsável pelo planejamento e priorização do <strong>Product Backlog</strong>, garantindo que cada Sprint entregasse algo alinhado à expectativa dele.</p>
+
+          <p>Conduzi o <strong>levantamento de requisitos</strong>, identificando a dependência de conhecimento técnico para consultar informações como a principal dor a ser atacada, e traduzi isso em <strong>User Stories</strong> claras e priorizadas para o time. Nas Sprint Reviews, validei as entregas junto ao cliente, coletei feedbacks e ajustei o backlog dos ciclos seguintes.</p>
+
+          <p>No papel técnico, desenvolvi a <strong>interface gráfica em Java</strong>, construindo a tela de chat com layout, navegação, campo de upload de PDF e tratamento visual de erros. Participei da criação dos protótipos no Figma e atuei na definição da <strong>arquitetura de comunicação</strong> entre o módulo de NLP (Ollama4j/Mistral) e o banco MySQL, garantindo que a pergunta fosse corretamente processada e a resposta devolvida em linguagem natural. Contribuí ainda no <strong>módulo de leitura e interpretação de PDF</strong>, integrando a extração de texto ao envio de contexto para o modelo, e nos testes de usabilidade e refinamentos visuais da entrega final.</p>
+
+          <h3>Lições Aprendidas</h3>
+          <ul>
+            <li>Desenvolvi competências como Product Owner: priorização de demandas, gestão de backlog e alinhamento entre cliente e time;</li>
+            <li>Aprimorei o levantamento de requisitos e a tradução de necessidades em User Stories acionáveis;</li>
+            <li>Evoluí na construção de interfaces gráficas desktop em Java;</li>
+            <li>Aprendi a integrar modelos de linguagem (LLM) em aplicações Java com Ollama4j, entendendo o fluxo de processamento de linguagem natural;</li>
+            <li>Aprofundei conhecimentos em MySQL, trabalhando com histórico de conversas e metadados de documentos;</li>
+            <li>Ganhei repertório em arquiteturas que integram IA, banco de dados e interface gráfica em uma mesma aplicação.</li>
+          </ul>
+
+        </div>
+      </div></div>
+    </section>
+
+    <!-- ---------- SEMESTRE 3 ---------- -->
+    <section class="item">
+      <button class="cabecalho" aria-expanded="false" aria-controls="sem3">
+        Semestre 3 — Plataforma de Clima e Cultura Organizacional (20XX-X)
+        <svg class="seta" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="conteudo" id="sem3"><div>
+        <div class="corpo">
+
+          <span class="papel">Product Owner</span><span class="papel">Dev Team</span>
+
+          <p>Empresas costumam perceber que o clima interno está desgastado só quando o problema já virou saída de gente. Sem um processo estruturado de feedback, a percepção sobre o ambiente fica dispersa em conversas informais, não há forma consistente de medir a evolução do time e as decisões sobre desenvolvimento e retenção acabam sendo tomadas sem dado nenhum por trás — o que se reflete diretamente nos índices de turnover.</p>
+
+          <p>Para resolver isso, o grupo <strong>Byte Benders</strong> desenvolveu uma plataforma web de <strong>feedback e pesquisa de clima e cultura organizacional</strong>, estruturada em quatro módulos e três perfis de acesso — Admin, Líder e Liderado. Na <strong>gestão de usuários</strong>, o Admin cadastra, edita e remove pessoas atribuindo os perfis corretos. Na <strong>gestão de pesquisas</strong>, cria questionários de autoavaliação e avaliação com até 20 perguntas em formatos variados (texto longo, escolha única, múltipla escolha) organizadas por categorias. O módulo de <strong>respostas</strong> permite que Líderes e Liderados participem de forma estruturada, e os <strong>dashboards</strong> apresentam visualizações personalizadas por perfil — autoavaliação pessoal, visão do Líder sobre seus liderados e visão gerencial do Admin — com filtros por data e categoria e exportação em PDF para consultas futuras. A aplicação foi construída com <strong>TypeScript e React</strong> no front-end, <strong>Node.js</strong> nas APIs REST e <strong>MySQL</strong> no armazenamento.</p>
+
+          <div class="repo">
+            <span>Repositório do projeto</span>
+            <a class="btn-repo" href="https://github.com/User-Business" target="_blank" rel="noopener">Acessar no GitHub</a>
+          </div>
+
+          <h3>Tecnologias Utilizadas</h3>
+          <div class="techs">
+            <div class="tech"><b>TypeScript e React</b><small>Componentes reutilizáveis e interface dinâmica</small></div>
+            <div class="tech"><b>HTML e CSS</b><small>Estruturação e estilização das telas</small></div>
+            <div class="tech"><b>Node.js</b><small>APIs REST e comunicação com o banco</small></div>
+            <div class="tech"><b>MySQL</b><small>Usuários, perfis, pesquisas e respostas</small></div>
+          </div>
+
+          <h3>Contribuições Pessoais</h3>
+          <p>Atuei novamente como <strong>Product Owner</strong> e <strong>Dev Team</strong>. Como PO, mantive o contato direto com a empresa parceira e fui responsável pela priorização do <strong>Product Backlog</strong>, organizando o fluxo de valor de forma incremental: do cadastro de usuários e perfis na Sprint 1 até os dashboards com filtros e exportação em PDF na Sprint 4.</p>
+
+          <p>Conduzi o <strong>levantamento de requisitos</strong> junto ao cliente, identificando a ausência de um processo estruturado de feedback e a dificuldade de medir o clima organizacional como as dores centrais, e transformei isso em User Stories com critérios de aceitação claros. Validei cada entrega nas Sprint Reviews, ajustando o backlog a partir dos feedbacks recebidos.</p>
+
+          <p>No desenvolvimento, trabalhei no <strong>front-end com TypeScript e React</strong>, construindo componentes reutilizáveis para as telas de login, cadastro, gerenciamento de usuários e pesquisas. Implementei a lógica dos <strong>perfis diferenciados</strong> (Admin, Líder e Liderado) e as permissões correspondentes a cada um. Atuei também no <strong>módulo de criação de pesquisas</strong>, desenvolvendo a interface para perguntas em diferentes formatos e sua organização por categorias, nos <strong>dashboards interativos</strong> com filtros por data e categoria, e na funcionalidade de <strong>exportação em PDF</strong> das avaliações.</p>
+
+          <h3>Lições Aprendidas</h3>
+          <ul>
+            <li>Consolidei competências como Product Owner, com priorização de backlog baseada em valor de negócio e comunicação com stakeholders;</li>
+            <li>Aprimorei a escrita de User Stories com critérios de aceitação claros e testáveis;</li>
+            <li>Evoluí de forma significativa no front-end com TypeScript e React;</li>
+            <li>Aprofundei conhecimentos em Node.js para desenvolvimento de APIs REST;</li>
+            <li>Avancei em modelagem relacional no MySQL envolvendo perfis, pesquisas, categorias e respostas;</li>
+            <li>Desenvolvi habilidade na construção de dashboards com filtros e visualizações diferenciadas por perfil;</li>
+            <li>Aprendi a implementar geração e exportação de PDF a partir dos dados da aplicação.</li>
+          </ul>
+
+        </div>
+      </div></div>
+    </section>
+
+    <!-- ---------- SEMESTRE 4 ---------- -->
+    <section class="item">
+      <button class="cabecalho" aria-expanded="false" aria-controls="sem4">
+        Semestre 4 — Denarius Data | Monitoramento de Tráfego Urbano (20XX-X)
+        <svg class="seta" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="conteudo" id="sem4"><div>
+        <div class="corpo">
+
+          <span class="papel">Product Owner</span><span class="papel">Dev Team</span>
+
+          <p>Os radares espalhados por uma cidade geram um volume enorme de dados de tráfego, mas esse dado bruto, sozinho, não muda nada na rua. Sem uma camada que interprete os números e avise quem precisa agir, a resposta a incidentes continua reativa: o agente de mobilidade descobre o problema tarde, os recursos são alocados sem critério claro de prioridade e a gestão não tem visão consolidada do que está acontecendo em cada região.</p>
+
+          <p>Para resolver isso, a equipe <strong>Denarius Data</strong> desenvolveu um <strong>Sistema Inteligente de Monitoramento e Alerta de Tráfego</strong> para São José dos Campos, transformando os dados dos radares em insights acionáveis. A plataforma permite cadastrar indicadores e níveis de severidade personalizados e dispara <strong>alertas automáticos</strong> quando esses níveis mudam, com um <strong>mapa interativo</strong> dividido pelas zonas da cidade. O acesso é diferenciado por perfil: o <strong>Gestor</strong> visualiza dashboards consolidados, cadastra causas raiz para os alertas e associa agentes a zonas específicas; o <strong>Agente</strong> recebe os alertas direcionados, documenta as resoluções e acompanha os indicadores em tempo real; e o <strong>Público</strong> consulta o mapa e a documentação dos indicadores de trânsito. O sistema foi construído com <strong>Vue.js</strong> no front-end, <strong>Java</strong> no back-end e <strong>Oracle</strong> como banco de dados, ao longo de três Sprints.</p>
+
+          <div class="repo">
+            <span>Repositório do projeto</span>
+            <a class="btn-repo" href="https://github.com/User-Business" target="_blank" rel="noopener">Acessar no GitHub</a>
+          </div>
+
+          <h3>Tecnologias Utilizadas</h3>
+          <div class="techs">
+            <div class="tech"><b>Vue.js</b><small>Interface de mapas, alertas e dashboards</small></div>
+            <div class="tech"><b>Java</b><small>API, regras de negócio e processamento dos dados</small></div>
+            <div class="tech"><b>Oracle</b><small>Zonas, métricas de trânsito e logs de alertas</small></div>
+            <div class="tech"><b>Swagger</b><small>Documentação detalhada da API</small></div>
+            <div class="tech"><b>Jira</b><small>Gestão das Sprints e das User Stories</small></div>
+            <div class="tech"><b>Figma</b><small>Prototipagem das telas (UI/UX)</small></div>
+          </div>
+
+          <h3>Contribuições Pessoais</h3>
+          <p>Atuei como <strong>Product Owner</strong> e <strong>Dev Team</strong>, com visão tanto da estratégia do produto quanto da execução técnica. Como PO, estruturei e priorizei o <strong>Product Backlog</strong>, organizando o fluxo de valor a partir dos dashboards de gestão na Sprint 1 até as rotinas mais complexas de alertas nas Sprints 2 e 3.</p>
+
+          <p>Traduzi o desafio da mobilidade urbana em <strong>User Stories</strong> claras, com critérios de aceitação rigorosos (DoR e DoD), para garantir que funcionalidades críticas — como os alertas de mudança de nível dos indicadores — chegassem ao usuário com qualidade. Ao fim de cada ciclo, validei as entregas e assegurei que as regras de acesso entre Gestor, Agente e Público funcionassem corretamente e gerassem o impacto esperado na operação de trânsito.</p>
+
+          <p>No papel técnico, apoiei o desenvolvimento das interfaces e a integração entre as tecnologias, garantindo que os requisitos mapeados no backlog saíssem do papel. Contribuí nas lógicas que asseguram que <strong>cada perfil enxergue apenas as informações pertinentes à sua função</strong>, respeitando a arquitetura definida, e atuei nas frentes necessárias para que a documentação dos indicadores e a visualização dos dados nos mapas por zona operassem sem gargalos.</p>
+
+          <h3>Lições Aprendidas</h3>
+          <ul>
+            <li>Refinei a capacidade de fatiar um escopo complexo — mobilidade urbana — em entregas iterativas e de alto valor;</li>
+            <li>Aprimorei a escrita de User Stories detalhadas e a resposta ágil a mudanças de escopo, como as adaptações necessárias na Sprint 3;</li>
+            <li>Evoluí tecnicamente no ecossistema Java no back-end e Vue.js no front-end;</li>
+            <li>Ganhei experiência prática com Oracle, gerenciando grandes volumes de informação e logs de auditoria;</li>
+            <li>Desenvolvi habilidade na concepção de sistemas com permissões estritas por perfil (Role-Based Access Control);</li>
+            <li>Aprimorei o equilíbrio entre o gerenciamento do produto e a colaboração técnica direta.</li>
+          </ul>
+
+        </div>
+      </div></div>
+    </section>
+
+    <!-- ---------- LEGENDA ---------- -->
+    <section class="item">
+      <button class="cabecalho" aria-expanded="false" aria-controls="legenda">
+        Legenda dos níveis técnicos
+        <svg class="seta" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="conteudo" id="legenda"><div>
+        <div class="corpo">
+          <dl class="niveis">
+            <dt>Básico</dt>
+            <dd>Já usei em atividades pontuais e consigo avançar seguindo exemplos e documentação.</dd>
+
+            <dt>Intermediário</dt>
+            <dd>Uso com autonomia em projetos, resolvo problemas comuns e sei onde buscar o que falta.</dd>
+
+            <dt>Avançado</dt>
+            <dd>Uso em produção, tomo decisões de arquitetura e consigo orientar outras pessoas.</dd>
+          </dl>
+        </div>
+      </div></div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+/* Accordion: abre um item por vez e mantém o aria-expanded correto. */
+document.querySelectorAll(".cabecalho").forEach(function (botao) {
+  botao.addEventListener("click", function () {
+    var item = botao.closest(".item");
+    var jaAberto = item.classList.contains("aberto");
+
+    document.querySelectorAll(".item").forEach(function (outro) {
+      outro.classList.remove("aberto");
+      outro.querySelector(".cabecalho").setAttribute("aria-expanded", "false");
+    });
+
+    if (!jaAberto) {
+      item.classList.add("aberto");
+      botao.setAttribute("aria-expanded", "true");
+    }
+  });
+});
+</script>
+
+</body>
+</html>
