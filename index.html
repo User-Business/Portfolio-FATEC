@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Caio Vinicius Osorio dos Santos — Portfólio</title>
-<meta name="description" content="Portfólio acadêmico e profissional de Caio Vinicius Osorio dos Santos, desenvolvedor full stack.">
+<meta name="description" content="Portfólio acadêmico e profissional de Caio Vinicius Osorio dos Santos, estudante de Banco de Dados e desenvolvedor full stack.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -246,13 +246,6 @@ body{
   margin: 26px 0 12px;
 }
 
-.corpo ul{
-  margin: 0;
-  padding-left: 20px;
-  color: #33374a;
-}
-.corpo li{ margin-bottom: 8px; }
-
 /* Caixa do repositório */
 .repo{
   display: flex;
@@ -319,6 +312,45 @@ body{
   display: block;
 }
 
+/* Hard skills */
+.hards{
+  border: 1px solid var(--borda);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.hard{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 13px 16px;
+  border-bottom: 1px solid var(--borda);
+}
+.hard:last-child{ border-bottom: 0; }
+
+.hard div{ flex: 1; }
+.hard b{ display: block; font-size: 14.5px; margin-bottom: 2px; }
+.hard small{
+  color: var(--texto-suave);
+  font-size: 13.5px;
+  line-height: 1.45;
+  display: block;
+}
+
+.nivel{
+  flex: none;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 11px;
+  border-radius: 999px;
+  white-space: nowrap;
+  margin-top: 2px;
+}
+.nivel.basico{ background: #fef3c7; color: #92400e; }
+.nivel.inter{  background: #dbeafe; color: #1e40af; }
+.nivel.avanc{  background: #dcfce7; color: #166534; }
+
 /* Legenda de níveis */
 .niveis{ margin: 0; }
 .niveis dt{
@@ -348,6 +380,7 @@ body{
   .projetos{ padding: 22px 18px 26px; }
   .projetos > h1{ font-size: 22px; }
   .corpo{ padding: 6px 16px 22px; }
+  .hard{ flex-direction: column; gap: 8px; }
 }
 
 @media (prefers-reduced-motion: reduce){
@@ -369,16 +402,16 @@ body{
     <img class="foto" src="img/perfil.jpg" alt="Foto de Caio Vinicius Osorio dos Santos">
 
     <h1 class="nome">Caio Vinicius Osorio dos Santos</h1>
-    <p class="cargo">Estudante de Análise e Desenvolvimento de Sistemas | Desenvolvedor Pleno na Falco Sistemas</p>
+    <p class="cargo">Estudante de Banco de Dados | Desenvolvedor Pleno na Falco Sistemas</p>
 
     <hr class="divisor">
 
     <h2>Introdução</h2>
-    <p>Me chamo Caio Vinicius Osorio dos Santos, sou estudante do 6º semestre de Análise e Desenvolvimento de Sistemas e atuo como Desenvolvedor Pleno na Falco Sistemas. Minha trajetória na programação começou no meu primeiro grande emprego, na Embraer, onde trabalhei como eletricista montador de aeronaves. Foi ali que fui exposto a projetos e desafios técnicos que exigiam raciocínio lógico para serem resolvidos e, durante os estudos que fiz para dar conta deles, acabei encontrando o Python. Aquele foi o ponto de partida do interesse pela área que me trouxe até aqui.</p>
+    <p>Me chamo Caio Vinicius Osorio dos Santos, sou estudante do 6º semestre de Banco de Dados na Fatec São José dos Campos e atuo como Desenvolvedor Pleno na Falco Sistemas.</p>
 
-    <p>Antes de iniciar minha graduação em tecnologia, atuei por dois anos como eletricista de aeronaves. Além da fabricação de toda a cablagem dos aviões da Embraer, o dia a dia envolvia problemas sistêmicos que precisavam ser resolvidos com lógica e método — algo que me aproximou naturalmente do desenvolvimento. Com o avanço nos estudos em Python e o crescimento da curiosidade, ingressei na Fatec com o objetivo de estruturar e aprofundar esse conhecimento.</p>
+    <p>Minha trajetória na programação começou na Embraer, onde trabalhei por dois anos como eletricista montador de aeronaves. Além da fabricação da cablagem dos aviões, o dia a dia trazia problemas sistêmicos que precisavam ser resolvidos com lógica e método. Foi estudando para dar conta desses desafios que encontrei o Python, e ali nasceu o interesse pela área que me trouxe até aqui.</p>
 
-    <p>Desde então, venho construindo experiência em projetos acadêmicos e profissionais que passam por front-end, back-end, modelagem de dados e integração de modelos de linguagem, frequentemente acumulando papéis técnicos e de gestão, como Scrum Master e Product Owner.</p>
+    <p>Com o avanço nos estudos e o crescimento da curiosidade, ingressei na Fatec para estruturar esse conhecimento de forma sólida. Ao longo do curso, passei por projetos que envolveram front-end, back-end, modelagem de dados e integração de modelos de linguagem, acumulando também papéis de gestão como Scrum Master e Product Owner.</p>
 
     <p>Para os próximos anos, meu objetivo é seguir evoluindo tecnicamente e academicamente, com uma pós-graduação e, futuramente, um mestrado. Tenho interesse especial por inteligência artificial executada localmente, com modelos rodando na própria infraestrutura da empresa — soluções que apoiam o desenvolvimento em ambientes corporativos sem abrir mão da privacidade dos dados nem depender de APIs externas.</p>
 
@@ -426,7 +459,7 @@ body{
     <!-- ---------- SEMESTRE 1 ---------- -->
     <section class="item aberto">
       <button class="cabecalho" aria-expanded="true" aria-controls="sem1">
-        Semestre 1 — Byte Benders (20XX-X)
+        1º Semestre — 2023/2 | Byte Benders
         <svg class="seta" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
       </button>
       <div class="conteudo" id="sem1"><div>
@@ -434,13 +467,13 @@ body{
 
           <span class="papel">Scrum Master</span><span class="papel">Dev Team</span>
 
-          <p>Muitas equipes adotam o <strong>SCRUM</strong> sem partir de uma base comum sobre o framework: cada pessoa aprende por uma fonte diferente, papéis e cerimônias acabam sendo aplicados pela metade e não existe nenhum instrumento objetivo para medir o quanto o time realmente evoluiu na adoção da metodologia. O resultado é um processo que soa ágil no vocabulário, mas não na prática, sem registro algum que permita acompanhar essa maturidade ao longo do tempo.</p>
+          <p>O parceiro deste projeto foi o <strong>CADI — Centro de Aprendizagem em Desenvolvimento e Integração</strong>, o departamento de extensão da Fatec São José dos Campos. O problema apresentado era concreto: equipes que precisam adotar o SCRUM não dispõem de um material único e estruturado para aprender o framework. Cada integrante estuda por uma fonte diferente, chega ao time com um entendimento próprio de papéis e cerimônias, e o método acaba aplicado pela metade. Além disso, não existe nenhum instrumento que permita à equipe medir, de forma objetiva, o quanto de fato evoluiu na adoção da metodologia ao longo do tempo.</p>
 
-          <p>Para resolver isso, o grupo <strong>Byte Benders</strong> desenvolveu um site que funciona como um curso online completo sobre SCRUM, cobrindo todos os processos e artefatos do framework. A plataforma foi organizada em módulos: uma seção de <strong>conteúdo teórico</strong>, com papéis, cerimônias, artefatos e princípios ágeis; uma seção de <strong>aplicações práticas</strong>, com exemplos reais que permitem ao time aplicar o método de forma padronizada; e <strong>formulários de avaliação</strong> parcial e final, com os quais a equipe mede a própria adoção do SCRUM e sustenta o autogerenciamento e a melhoria contínua. O sistema foi construído em <strong>Python com Flask</strong>, prototipado no Figma e validado com o cliente antes do desenvolvimento, sendo entregue ao longo de quatro Sprints. Este foi o projeto da disciplina de Aprendizagem por Projetos Integrados (API) do primeiro semestre de ADS na FATEC.</p>
+          <p>Para resolver isso, o grupo <strong>Byte Benders</strong> desenvolveu um site que funciona como um curso online completo sobre SCRUM. A plataforma foi organizada em três módulos: <strong>conteúdo teórico</strong>, com papéis, cerimônias, artefatos e princípios ágeis; <strong>aplicações práticas</strong>, com exemplos reais que permitem ao time aplicar o método de forma padronizada; e <strong>formulários de avaliação</strong> parcial e final, com os quais a equipe mede a própria adoção do framework e sustenta o autogerenciamento e a melhoria contínua. O sistema foi construído em <strong>Python com Flask</strong>, prototipado no Figma e validado com o cliente antes do desenvolvimento, sendo entregue ao longo de quatro Sprints.</p>
 
           <div class="repo">
             <span>Repositório do projeto</span>
-            <a class="btn-repo" href="https://github.com/User-Business" target="_blank" rel="noopener">Acessar no GitHub</a>
+            <a class="btn-repo" href="https://github.com/Byte-Benders-Fatec/api-2sem-2023" target="_blank" rel="noopener">Acessar no GitHub</a>
           </div>
 
           <h3>Tecnologias Utilizadas</h3>
@@ -453,22 +486,23 @@ body{
           </div>
 
           <h3>Contribuições Pessoais</h3>
-          <p>Atuei simultaneamente como <strong>Scrum Master</strong> e <strong>Dev Team</strong>, o que me deu visão completa do ciclo de desenvolvimento. Como Scrum Master, facilitei todas as cerimônias do framework — Sprint Planning, Daily Meetings, Sprint Review e Sprint Retrospective — ao longo das quatro Sprints, garantindo que a equipe seguisse o processo de forma disciplinada e produtiva.</p>
+          <p>Atuei como <strong>Scrum Master</strong> e integrante do <strong>Dev Team</strong>. Como Scrum Master, facilitei as cerimônias do framework ao longo das quatro Sprints, acompanhei a distribuição do Sprint Backlog entre os integrantes e trabalhei na remoção dos impedimentos que travavam o andamento das entregas, mediando a comunicação entre o time e o Product Owner.</p>
 
-          <p>Trabalhei diretamente na <strong>remoção de impedimentos</strong> que bloqueavam o progresso do time, mediando conflitos, esclarecendo dúvidas técnicas e mantendo a comunicação fluida entre os integrantes e o Product Owner. Também fui responsável pelo acompanhamento do <strong>Sprint Backlog</strong>, distribuindo tarefas entre os membros, monitorando a velocidade da equipe e conduzindo retrospectivas que levantavam pontos positivos, negativos e ações de melhoria para os ciclos seguintes.</p>
+          <p>No papel técnico, contribuí no front-end com HTML e CSS, construindo e estilizando as páginas do curso. Participei da implementação das rotas em Flask, padronizando cabeçalho e rodapé por meio de templates reutilizáveis, e da estilização responsiva com Bootstrap, incorporado a partir da terceira Sprint. Também atuei na criação dos formulários de avaliação e na correção de defeitos da Sprint 4.</p>
 
-          <p>No papel técnico, contribuí no <strong>front-end</strong> com HTML e CSS, construindo e estilizando as páginas do curso. Participei da implementação das <strong>rotas em Flask</strong>, integrando as telas e padronizando cabeçalho e rodapé por meio de templates reutilizáveis, e da <strong>estilização responsiva com Bootstrap</strong>, customizando componentes para diferentes resoluções. Também atuei na criação dos <strong>formulários de avaliação</strong> do método, implementando a estrutura visual e a lógica de entrada de dados, e na fase de testes e correção de bugs da Sprint 4, garantindo a qualidade final antes da entrega.</p>
+          <h3>Hard Skills</h3>
+          <div class="hards">
+            <div class="hard"><div><b>Python e Flask</b><small>Implementei as rotas da aplicação e a padronização do layout com templates reutilizáveis de cabeçalho e rodapé.</small></div><span class="nivel basico">Básico</span></div>
+            <div class="hard"><div><b>HTML e CSS</b><small>Construí e estilizei as páginas do curso, definindo a estrutura do conteúdo e a identidade visual.</small></div><span class="nivel basico">Básico</span></div>
+            <div class="hard"><div><b>Bootstrap</b><small>Customizei componentes para deixar o site responsivo em diferentes resoluções e dispositivos.</small></div><span class="nivel basico">Básico</span></div>
+            <div class="hard"><div><b>Figma</b><small>Participei da construção do protótipo navegável usado para validar a proposta com o cliente.</small></div><span class="nivel basico">Básico</span></div>
+            <div class="hard"><div><b>Git e GitHub</b><small>Trabalhei com commits, merges e organização do repositório compartilhado com a equipe.</small></div><span class="nivel basico">Básico</span></div>
+          </div>
 
-          <h3>Lições Aprendidas</h3>
-          <ul>
-            <li>Desenvolvi liderança servil como Scrum Master, aprendendo a facilitar o trabalho da equipe em vez de simplesmente delegar tarefas;</li>
-            <li>Aprimorei mediação de conflitos e comunicação interpessoal dentro do time;</li>
-            <li>Consolidei na prática o entendimento das cerimônias e artefatos do SCRUM — aplicando exatamente o que o projeto se propunha a ensinar;</li>
-            <li>Evoluí no front-end com HTML, CSS e Bootstrap, construindo páginas responsivas do zero;</li>
-            <li>Aprendi a usar o Flask no back-end, entendendo rotas, templates e integração entre páginas;</li>
-            <li>Desenvolvi prototipação com Figma, participando da validação do wireframe navegável com o cliente;</li>
-            <li>Evoluí no uso de Git e GitHub, com commits, merges e organização de repositório em equipe.</li>
-          </ul>
+          <h3>Soft Skills</h3>
+          <p>Assumi o papel de Scrum Master sem nunca ter trabalhado com o framework antes — não sabia o que a função exigia e aprendi enquanto a exercia. As primeiras cerimônias foram desconfortáveis justamente por isso: eu conduzia reuniões cujo propósito ainda estava entendendo. Foi um processo de estudar e aplicar ao mesmo tempo, e demorou algumas Sprints até que eu compreendesse os compromissos reais da função.</p>
+
+          <p>O aprendizado mais importante veio dessa dificuldade. Percebi que ser Scrum Master não é cobrar entregas, mas entender onde cada pessoa do time está travada e ajudar a destravar. Passei a prestar atenção nas dificuldades individuais dos integrantes — quem estava com dúvida técnica, quem tinha pegado uma tarefa acima do próprio nível — e a agir sobre isso antes que virasse atraso na Sprint. Foi a primeira vez que enxerguei o time como um conjunto, e não como pessoas executando tarefas separadas.</p>
 
         </div>
       </div></div>
@@ -477,7 +511,7 @@ body{
     <!-- ---------- SEMESTRE 2 ---------- -->
     <section class="item">
       <button class="cabecalho" aria-expanded="false" aria-controls="sem2">
-        Semestre 2 — Chatbot com IA local para leitura de PDFs (20XX-X)
+        2º Semestre — 2024/1 | Chatbot com IA local para leitura de PDFs
         <svg class="seta" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
       </button>
       <div class="conteudo" id="sem2"><div>
@@ -485,13 +519,13 @@ body{
 
           <span class="papel">Product Owner</span><span class="papel">Dev Team</span>
 
-          <p>Consultar uma informação específica dentro de um documento extenso costuma custar tempo e, muitas vezes, exigir familiaridade técnica com ferramentas de busca ou consulta a dados. Para o cliente interno do projeto, o Prof. Giuliano Bertoti, essa era a dor central: usuários sem perfil técnico ficavam dependentes de terceiros para extrair respostas de arquivos que já estavam ali, disponíveis, mas pouco acessíveis.</p>
+          <p>O cliente deste projeto foi o <strong>Prof. Giuliano Bertoti</strong>, da Fatec São José dos Campos. O problema apresentado era o custo de extrair informação de documentos extensos: localizar um dado específico dentro de um PDF exige tempo e, na maioria das ferramentas disponíveis, algum grau de familiaridade técnica com mecanismos de busca ou consulta estruturada. O resultado é que usuários sem esse perfil ficam dependentes de terceiros para acessar informações que já estão disponíveis, e a consulta a um acervo de documentos vira um gargalo operacional.</p>
 
-          <p>Para resolver isso, desenvolvemos uma <strong>aplicação desktop em Java</strong> que permite conversar com documentos em linguagem natural. O usuário faz o upload de um PDF e escreve perguntas em uma interface semelhante a um chat; o sistema extrai o conteúdo do arquivo, envia o contexto e a pergunta ao modelo <strong>Mistral</strong>, executado localmente via <strong>Ollama4j</strong>, e devolve a resposta em linguagem natural, de forma clara e objetiva. A aplicação foi dividida em dois módulos — interface de chat e motor de processamento — com <strong>MySQL</strong> armazenando histórico de conversas, metadados dos documentos e configurações. Por rodar com um modelo local, a solução funciona sem depender de APIs externas pagas e mantém os documentos dentro da própria máquina.</p>
+          <p>Para resolver isso, desenvolvemos uma <strong>aplicação desktop em Java</strong> que permite consultar documentos em linguagem natural. O usuário faz o upload de um PDF e escreve perguntas em uma interface semelhante a um chat; o sistema extrai o conteúdo do arquivo, envia o contexto e a pergunta ao modelo <strong>Mistral</strong>, executado localmente via <strong>Ollama4j</strong>, e devolve a resposta em linguagem natural. A aplicação foi dividida em dois módulos — interface de chat e motor de processamento — com <strong>MySQL</strong> armazenando o histórico de conversas, os metadados dos documentos e as configurações. Por operar com um modelo local, a solução dispensa APIs externas pagas e mantém os documentos no próprio ambiente do usuário.</p>
 
           <div class="repo">
             <span>Repositório do projeto</span>
-            <a class="btn-repo" href="https://github.com/User-Business" target="_blank" rel="noopener">Acessar no GitHub</a>
+            <a class="btn-repo" href="https://github.com/Byte-Benders-Fatec/CONFIRMAR-REPO-2024-1" target="_blank" rel="noopener">Acessar no GitHub</a>
           </div>
 
           <h3>Tecnologias Utilizadas</h3>
@@ -505,21 +539,23 @@ body{
           </div>
 
           <h3>Contribuições Pessoais</h3>
-          <p>Atuei como <strong>Product Owner</strong> e <strong>Dev Team</strong>, acumulando a visão das necessidades do cliente e a execução técnica. Como PO, mantive o contato direto com o cliente interno e fui responsável pelo planejamento e priorização do <strong>Product Backlog</strong>, garantindo que cada Sprint entregasse algo alinhado à expectativa dele.</p>
+          <p>Atuei como <strong>Product Owner</strong> e integrante do <strong>Dev Team</strong>. Como PO, mantive o contato direto com o cliente, conduzi o levantamento de requisitos e traduzi as necessidades identificadas em User Stories priorizadas no Product Backlog. Nas Sprint Reviews, validei as entregas, coletei feedback e reordenei o backlog para os ciclos seguintes.</p>
 
-          <p>Conduzi o <strong>levantamento de requisitos</strong>, identificando a dependência de conhecimento técnico para consultar informações como a principal dor a ser atacada, e traduzi isso em <strong>User Stories</strong> claras e priorizadas para o time. Nas Sprint Reviews, validei as entregas junto ao cliente, coletei feedbacks e ajustei o backlog dos ciclos seguintes.</p>
+          <p>No papel técnico, desenvolvi a interface gráfica em Java, com a tela de chat, a navegação, o campo de upload e o tratamento visual de erros. Participei da definição da arquitetura de comunicação entre o módulo de processamento de linguagem natural e o banco de dados, e contribuí no módulo de leitura e interpretação de PDF, integrando a extração de texto ao envio de contexto para o modelo.</p>
 
-          <p>No papel técnico, desenvolvi a <strong>interface gráfica em Java</strong>, construindo a tela de chat com layout, navegação, campo de upload de PDF e tratamento visual de erros. Participei da criação dos protótipos no Figma e atuei na definição da <strong>arquitetura de comunicação</strong> entre o módulo de NLP (Ollama4j/Mistral) e o banco MySQL, garantindo que a pergunta fosse corretamente processada e a resposta devolvida em linguagem natural. Contribuí ainda no <strong>módulo de leitura e interpretação de PDF</strong>, integrando a extração de texto ao envio de contexto para o modelo, e nos testes de usabilidade e refinamentos visuais da entrega final.</p>
+          <h3>Hard Skills</h3>
+          <div class="hards">
+            <div class="hard"><div><b>Java</b><small>Construí a interface gráfica desktop da aplicação, incluindo a tela de chat e o tratamento de erros.</small></div><span class="nivel basico">Básico</span></div>
+            <div class="hard"><div><b>Ollama4j e Mistral</b><small>Integrei um modelo de linguagem executado localmente, entendendo o fluxo entre extração de texto, envio de contexto e resposta.</small></div><span class="nivel basico">Básico</span></div>
+            <div class="hard"><div><b>MySQL</b><small>Trabalhei na persistência do histórico de conversas e dos metadados dos documentos processados.</small></div><span class="nivel basico">Básico</span></div>
+            <div class="hard"><div><b>Leitura de PDF</b><small>Contribuí no módulo de extração de conteúdo textual dos arquivos enviados pelo usuário.</small></div><span class="nivel basico">Básico</span></div>
+            <div class="hard"><div><b>Git e GitHub</b><small>Versionamento do projeto com uso de branches e resolução de conflitos em equipe.</small></div><span class="nivel inter">Intermediário</span></div>
+          </div>
 
-          <h3>Lições Aprendidas</h3>
-          <ul>
-            <li>Desenvolvi competências como Product Owner: priorização de demandas, gestão de backlog e alinhamento entre cliente e time;</li>
-            <li>Aprimorei o levantamento de requisitos e a tradução de necessidades em User Stories acionáveis;</li>
-            <li>Evoluí na construção de interfaces gráficas desktop em Java;</li>
-            <li>Aprendi a integrar modelos de linguagem (LLM) em aplicações Java com Ollama4j, entendendo o fluxo de processamento de linguagem natural;</li>
-            <li>Aprofundei conhecimentos em MySQL, trabalhando com histórico de conversas e metadados de documentos;</li>
-            <li>Ganhei repertório em arquiteturas que integram IA, banco de dados e interface gráfica em uma mesma aplicação.</li>
-          </ul>
+          <h3>Soft Skills</h3>
+          <p>Foi a primeira vez que assumi o papel de Product Owner. Até então eu só tinha observado outras pessoas exercendo a função, o que me deu uma noção superficial do que ela envolvia. Ao assumir de fato, descobri que a parte difícil não é organizar o backlog, e sim decidir o que entra e o que fica de fora de cada Sprint — e sustentar essa decisão diante do time e do cliente.</p>
+
+          <p>O principal aprendizado foi entender que preciso me colocar no lugar do cliente para enxergar a dor real por trás do que ele pede. Quando o professor descrevia a dificuldade de consultar documentos, o pedido literal era uma ferramenta de busca; o problema de verdade era a dependência de conhecimento técnico. Perceber essa diferença mudou a forma como escrevi as User Stories, que passaram a descrever o resultado esperado pelo usuário em vez da funcionalidade imaginada por nós.</p>
 
         </div>
       </div></div>
@@ -528,7 +564,7 @@ body{
     <!-- ---------- SEMESTRE 3 ---------- -->
     <section class="item">
       <button class="cabecalho" aria-expanded="false" aria-controls="sem3">
-        Semestre 3 — Plataforma de Clima e Cultura Organizacional (20XX-X)
+        3º Semestre — 2024/2 | Plataforma de Clima e Cultura Organizacional
         <svg class="seta" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
       </button>
       <div class="conteudo" id="sem3"><div>
@@ -536,13 +572,13 @@ body{
 
           <span class="papel">Product Owner</span><span class="papel">Dev Team</span>
 
-          <p>Empresas costumam perceber que o clima interno está desgastado só quando o problema já virou saída de gente. Sem um processo estruturado de feedback, a percepção sobre o ambiente fica dispersa em conversas informais, não há forma consistente de medir a evolução do time e as decisões sobre desenvolvimento e retenção acabam sendo tomadas sem dado nenhum por trás — o que se reflete diretamente nos índices de turnover.</p>
+          <p>A parceira deste projeto foi a <strong>Youtan</strong>, empresa do segmento de desenvolvimento de software. O problema apresentado era a ausência de um processo estruturado de feedback dentro da organização. Sem instrumentos formais de avaliação, a percepção sobre o ambiente de trabalho ficava restrita a conversas informais, não havia como medir a evolução do clima organizacional de um período para outro, e as decisões sobre desenvolvimento e retenção de pessoas eram tomadas sem sustentação em dados — com reflexo direto nos índices de rotatividade.</p>
 
-          <p>Para resolver isso, o grupo <strong>Byte Benders</strong> desenvolveu uma plataforma web de <strong>feedback e pesquisa de clima e cultura organizacional</strong>, estruturada em quatro módulos e três perfis de acesso — Admin, Líder e Liderado. Na <strong>gestão de usuários</strong>, o Admin cadastra, edita e remove pessoas atribuindo os perfis corretos. Na <strong>gestão de pesquisas</strong>, cria questionários de autoavaliação e avaliação com até 20 perguntas em formatos variados (texto longo, escolha única, múltipla escolha) organizadas por categorias. O módulo de <strong>respostas</strong> permite que Líderes e Liderados participem de forma estruturada, e os <strong>dashboards</strong> apresentam visualizações personalizadas por perfil — autoavaliação pessoal, visão do Líder sobre seus liderados e visão gerencial do Admin — com filtros por data e categoria e exportação em PDF para consultas futuras. A aplicação foi construída com <strong>TypeScript e React</strong> no front-end, <strong>Node.js</strong> nas APIs REST e <strong>MySQL</strong> no armazenamento.</p>
+          <p>A solução foi uma plataforma web para <strong>pesquisa de clima e cultura organizacional</strong>, estruturada em quatro módulos e três perfis de acesso: Admin, Líder e Liderado. Na <strong>gestão de usuários</strong>, o administrador cadastra e edita pessoas atribuindo os perfis correspondentes. Na <strong>gestão de pesquisas</strong>, cria questionários de autoavaliação e avaliação com até vinte perguntas, organizadas por categorias e em formatos variados. O módulo de <strong>respostas</strong> permite que líderes e liderados participem de forma estruturada, e os <strong>dashboards</strong> apresentam visualizações diferenciadas por perfil, com filtros por data e categoria e exportação em PDF. A aplicação foi construída com <strong>TypeScript e React</strong> no front-end, <strong>Node.js</strong> nas APIs REST e <strong>MySQL</strong> no armazenamento.</p>
 
           <div class="repo">
             <span>Repositório do projeto</span>
-            <a class="btn-repo" href="https://github.com/User-Business" target="_blank" rel="noopener">Acessar no GitHub</a>
+            <a class="btn-repo" href="https://github.com/Byte-Benders-Fatec/api-2sem-2024" target="_blank" rel="noopener">Acessar no GitHub</a>
           </div>
 
           <h3>Tecnologias Utilizadas</h3>
@@ -554,22 +590,23 @@ body{
           </div>
 
           <h3>Contribuições Pessoais</h3>
-          <p>Atuei novamente como <strong>Product Owner</strong> e <strong>Dev Team</strong>. Como PO, mantive o contato direto com a empresa parceira e fui responsável pela priorização do <strong>Product Backlog</strong>, organizando o fluxo de valor de forma incremental: do cadastro de usuários e perfis na Sprint 1 até os dashboards com filtros e exportação em PDF na Sprint 4.</p>
+          <p>Atuei como <strong>Product Owner</strong> e integrante do <strong>Dev Team</strong>. Como PO, mantive o contato com a empresa parceira e estruturei o Product Backlog de forma incremental: da gestão de usuários e perfis, na primeira Sprint, até os dashboards com filtros e exportação em PDF, na quarta. As User Stories foram escritas com critérios de aceitação claros e testáveis, e cada entrega foi validada com o cliente ao fim do ciclo.</p>
 
-          <p>Conduzi o <strong>levantamento de requisitos</strong> junto ao cliente, identificando a ausência de um processo estruturado de feedback e a dificuldade de medir o clima organizacional como as dores centrais, e transformei isso em User Stories com critérios de aceitação claros. Validei cada entrega nas Sprint Reviews, ajustando o backlog a partir dos feedbacks recebidos.</p>
+          <p>No desenvolvimento, trabalhei no front-end com TypeScript e React, construindo componentes reutilizáveis para as telas de autenticação, cadastro e gerenciamento. Implementei a lógica dos perfis diferenciados e suas permissões, desenvolvi a interface de cadastro de perguntas em múltiplos formatos e participei da construção dos dashboards e da exportação das avaliações em PDF.</p>
 
-          <p>No desenvolvimento, trabalhei no <strong>front-end com TypeScript e React</strong>, construindo componentes reutilizáveis para as telas de login, cadastro, gerenciamento de usuários e pesquisas. Implementei a lógica dos <strong>perfis diferenciados</strong> (Admin, Líder e Liderado) e as permissões correspondentes a cada um. Atuei também no <strong>módulo de criação de pesquisas</strong>, desenvolvendo a interface para perguntas em diferentes formatos e sua organização por categorias, nos <strong>dashboards interativos</strong> com filtros por data e categoria, e na funcionalidade de <strong>exportação em PDF</strong> das avaliações.</p>
+          <h3>Hard Skills</h3>
+          <div class="hards">
+            <div class="hard"><div><b>TypeScript e React</b><small>Construí componentes reutilizáveis para autenticação, cadastro e gerenciamento de usuários e pesquisas.</small></div><span class="nivel inter">Intermediário</span></div>
+            <div class="hard"><div><b>Node.js</b><small>Trabalhei nas APIs REST responsáveis pela comunicação entre o front-end e o banco de dados.</small></div><span class="nivel basico">Básico</span></div>
+            <div class="hard"><div><b>MySQL</b><small>Modelagem relacional envolvendo perfis, pesquisas, categorias e respostas.</small></div><span class="nivel inter">Intermediário</span></div>
+            <div class="hard"><div><b>Controle de acesso por perfil</b><small>Implementei as permissões que separam o que Admin, Líder e Liderado enxergam na aplicação.</small></div><span class="nivel inter">Intermediário</span></div>
+            <div class="hard"><div><b>Geração de PDF</b><small>Desenvolvi a exportação das avaliações a partir dos dados consolidados nos dashboards.</small></div><span class="nivel basico">Básico</span></div>
+          </div>
 
-          <h3>Lições Aprendidas</h3>
-          <ul>
-            <li>Consolidei competências como Product Owner, com priorização de backlog baseada em valor de negócio e comunicação com stakeholders;</li>
-            <li>Aprimorei a escrita de User Stories com critérios de aceitação claros e testáveis;</li>
-            <li>Evoluí de forma significativa no front-end com TypeScript e React;</li>
-            <li>Aprofundei conhecimentos em Node.js para desenvolvimento de APIs REST;</li>
-            <li>Avancei em modelagem relacional no MySQL envolvendo perfis, pesquisas, categorias e respostas;</li>
-            <li>Desenvolvi habilidade na construção de dashboards com filtros e visualizações diferenciadas por perfil;</li>
-            <li>Aprendi a implementar geração e exportação de PDF a partir dos dados da aplicação.</li>
-          </ul>
+          <h3>Soft Skills</h3>
+          <p>Este foi o primeiro projeto em que lidei com um cliente real, de fora da faculdade, e a diferença apareceu logo. Enfrentei imprevistos que não existiam nos semestres anteriores: mensagens sem resposta, retornos que demoravam dias e Sprints correndo enquanto eu aguardava uma definição que não chegava. Nem tudo depende do meu ritmo, e isso exigiu ajustar o planejamento à disponibilidade de quem estava do outro lado.</p>
+
+          <p>Aprendi a ser objetivo na comunicação. Em vez de mandar perguntas abertas que exigiam do cliente um texto longo para responder, passei a formular questões fechadas e diretas, muitas vezes já com opções para ele apenas confirmar. O retorno ficou mais rápido e mais preciso. Também aprendi a antecipar as dúvidas: quando eu sabia que uma definição travaria a Sprint seguinte, buscava o cliente antes, e não no momento em que o time já estava parado esperando.</p>
 
         </div>
       </div></div>
@@ -578,7 +615,7 @@ body{
     <!-- ---------- SEMESTRE 4 ---------- -->
     <section class="item">
       <button class="cabecalho" aria-expanded="false" aria-controls="sem4">
-        Semestre 4 — Denarius Data | Monitoramento de Tráfego Urbano (20XX-X)
+        4º Semestre — 2025/2 | Denarius Data: Monitoramento de Tráfego Urbano
         <svg class="seta" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
       </button>
       <div class="conteudo" id="sem4"><div>
@@ -586,13 +623,13 @@ body{
 
           <span class="papel">Product Owner</span><span class="papel">Dev Team</span>
 
-          <p>Os radares espalhados por uma cidade geram um volume enorme de dados de tráfego, mas esse dado bruto, sozinho, não muda nada na rua. Sem uma camada que interprete os números e avise quem precisa agir, a resposta a incidentes continua reativa: o agente de mobilidade descobre o problema tarde, os recursos são alocados sem critério claro de prioridade e a gestão não tem visão consolidada do que está acontecendo em cada região.</p>
+          <p>O parceiro deste projeto foi a <strong>Prefeitura de São José dos Campos</strong>, no contexto da gestão da mobilidade urbana do município. O problema apresentado era que os radares distribuídos pela cidade produzem um volume expressivo de dados de tráfego, mas o dado bruto sozinho não altera a operação. Sem uma camada que interprete os indicadores e comunique quem precisa agir, a resposta a incidentes permanece reativa: o agente de mobilidade toma conhecimento da ocorrência tarde, a alocação de recursos acontece sem critério claro de prioridade e a gestão não tem visão consolidada do que ocorre em cada região.</p>
 
-          <p>Para resolver isso, a equipe <strong>Denarius Data</strong> desenvolveu um <strong>Sistema Inteligente de Monitoramento e Alerta de Tráfego</strong> para São José dos Campos, transformando os dados dos radares em insights acionáveis. A plataforma permite cadastrar indicadores e níveis de severidade personalizados e dispara <strong>alertas automáticos</strong> quando esses níveis mudam, com um <strong>mapa interativo</strong> dividido pelas zonas da cidade. O acesso é diferenciado por perfil: o <strong>Gestor</strong> visualiza dashboards consolidados, cadastra causas raiz para os alertas e associa agentes a zonas específicas; o <strong>Agente</strong> recebe os alertas direcionados, documenta as resoluções e acompanha os indicadores em tempo real; e o <strong>Público</strong> consulta o mapa e a documentação dos indicadores de trânsito. O sistema foi construído com <strong>Vue.js</strong> no front-end, <strong>Java</strong> no back-end e <strong>Oracle</strong> como banco de dados, ao longo de três Sprints.</p>
+          <p>A solução foi um <strong>Sistema Inteligente de Monitoramento e Alerta de Tráfego</strong>, que transforma os dados dos radares em informação acionável. A plataforma permite cadastrar indicadores e níveis de severidade personalizados e dispara <strong>alertas automáticos</strong> quando esses níveis mudam, com um <strong>mapa interativo</strong> dividido pelas zonas da cidade. O acesso é segmentado em três perfis: o <strong>Gestor</strong> visualiza dashboards consolidados, cadastra causas raiz e associa agentes a zonas; o <strong>Agente</strong> recebe os alertas direcionados, documenta as resoluções e acompanha os indicadores em tempo real; e o <strong>Público</strong> consulta o mapa e a documentação dos indicadores. O sistema foi construído com <strong>Vue.js</strong> no front-end, <strong>Java</strong> no back-end e <strong>Oracle</strong> como banco de dados, ao longo de três Sprints.</p>
 
           <div class="repo">
             <span>Repositório do projeto</span>
-            <a class="btn-repo" href="https://github.com/User-Business" target="_blank" rel="noopener">Acessar no GitHub</a>
+            <a class="btn-repo" href="https://github.com/DenariusData/API-4SEM" target="_blank" rel="noopener">Acessar no GitHub</a>
           </div>
 
           <h3>Tecnologias Utilizadas</h3>
@@ -606,21 +643,23 @@ body{
           </div>
 
           <h3>Contribuições Pessoais</h3>
-          <p>Atuei como <strong>Product Owner</strong> e <strong>Dev Team</strong>, com visão tanto da estratégia do produto quanto da execução técnica. Como PO, estruturei e priorizei o <strong>Product Backlog</strong>, organizando o fluxo de valor a partir dos dashboards de gestão na Sprint 1 até as rotinas mais complexas de alertas nas Sprints 2 e 3.</p>
+          <p>Atuei como <strong>Product Owner</strong> na primeira Sprint e como integrante do <strong>Dev Team</strong> nas demais. Na etapa de PO, estruturei e priorizei o Product Backlog, traduzindo o desafio da mobilidade urbana em User Stories com critérios de aceitação formalizados por Definition of Ready e Definition of Done.</p>
 
-          <p>Traduzi o desafio da mobilidade urbana em <strong>User Stories</strong> claras, com critérios de aceitação rigorosos (DoR e DoD), para garantir que funcionalidades críticas — como os alertas de mudança de nível dos indicadores — chegassem ao usuário com qualidade. Ao fim de cada ciclo, validei as entregas e assegurei que as regras de acesso entre Gestor, Agente e Público funcionassem corretamente e gerassem o impacto esperado na operação de trânsito.</p>
+          <p>Nas Sprints seguintes, o foco passou a ser o desenvolvimento. Apoiei a construção das interfaces e a integração entre as camadas da aplicação, contribuí nas regras que garantem que cada perfil acesse somente as informações pertinentes à sua função e atuei nas frentes necessárias para o funcionamento da documentação dos indicadores e da visualização dos dados nos mapas por zona.</p>
 
-          <p>No papel técnico, apoiei o desenvolvimento das interfaces e a integração entre as tecnologias, garantindo que os requisitos mapeados no backlog saíssem do papel. Contribuí nas lógicas que asseguram que <strong>cada perfil enxergue apenas as informações pertinentes à sua função</strong>, respeitando a arquitetura definida, e atuei nas frentes necessárias para que a documentação dos indicadores e a visualização dos dados nos mapas por zona operassem sem gargalos.</p>
+          <h3>Hard Skills</h3>
+          <div class="hards">
+            <div class="hard"><div><b>Vue.js</b><small>Desenvolvi telas de visualização de mapas, alertas e dashboards da plataforma.</small></div><span class="nivel inter">Intermediário</span></div>
+            <div class="hard"><div><b>Java</b><small>Trabalhei na API e nas regras de negócio responsáveis pelo processamento dos dados dos radares.</small></div><span class="nivel inter">Intermediário</span></div>
+            <div class="hard"><div><b>Oracle</b><small>Manipulei zonas, métricas de trânsito e logs de alertas em um volume alto de registros históricos.</small></div><span class="nivel inter">Intermediário</span></div>
+            <div class="hard"><div><b>Swagger</b><small>Documentei os endpoints da API para consulta pela própria equipe e pelo cliente.</small></div><span class="nivel inter">Intermediário</span></div>
+            <div class="hard"><div><b>Jira</b><small>Gerenciei Sprints e User Stories, com uso de critérios de DoR e DoD.</small></div><span class="nivel inter">Intermediário</span></div>
+          </div>
 
-          <h3>Lições Aprendidas</h3>
-          <ul>
-            <li>Refinei a capacidade de fatiar um escopo complexo — mobilidade urbana — em entregas iterativas e de alto valor;</li>
-            <li>Aprimorei a escrita de User Stories detalhadas e a resposta ágil a mudanças de escopo, como as adaptações necessárias na Sprint 3;</li>
-            <li>Evoluí tecnicamente no ecossistema Java no back-end e Vue.js no front-end;</li>
-            <li>Ganhei experiência prática com Oracle, gerenciando grandes volumes de informação e logs de auditoria;</li>
-            <li>Desenvolvi habilidade na concepção de sistemas com permissões estritas por perfil (Role-Based Access Control);</li>
-            <li>Aprimorei o equilíbrio entre o gerenciamento do produto e a colaboração técnica direta.</li>
-          </ul>
+          <h3>Soft Skills</h3>
+          <p>Este foi o semestre mais pesado em volume de trabalho. Acumulei um período de demandas altas simultâneas — as tarefas do projeto, as entregas das demais disciplinas e o trabalho — e precisei aprender a sustentar esse ritmo sem deixar a qualidade cair. A saída não foi trabalhar mais horas, e sim priorizar melhor: separar o que era realmente crítico para a Sprint do que podia esperar, e ser honesto com o time quando algo não caberia no prazo.</p>
+
+          <p>A troca de papel no meio do projeto também exigiu adaptação. Sair da posição de Product Owner, com visão do produto inteiro, para atuar como desenvolvedor em tarefas específicas poderia ter estreitado meu campo de visão. Fiz questão de manter o entendimento do projeto como um todo mesmo executando partes isoladas, o que me ajudou a perceber quando uma decisão técnica local ia contra o que tínhamos combinado com o cliente.</p>
 
         </div>
       </div></div>
@@ -636,10 +675,10 @@ body{
         <div class="corpo">
           <dl class="niveis">
             <dt>Básico</dt>
-            <dd>Já usei em atividades pontuais e consigo avançar seguindo exemplos e documentação.</dd>
+            <dd>Usei em atividades pontuais e consigo avançar seguindo exemplos e documentação, com apoio quando necessário.</dd>
 
             <dt>Intermediário</dt>
-            <dd>Uso com autonomia em projetos, resolvo problemas comuns e sei onde buscar o que falta.</dd>
+            <dd>Uso com autonomia em projetos, resolvo problemas comuns sem ajuda e sei onde buscar o que falta.</dd>
 
             <dt>Avançado</dt>
             <dd>Uso em produção, tomo decisões de arquitetura e consigo orientar outras pessoas.</dd>
