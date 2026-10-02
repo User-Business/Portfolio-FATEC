@@ -665,6 +665,61 @@ body{
       </div></div>
     </section>
 
+    <!-- ---------- SEMESTRE 5 ---------- -->
+    <section class="item">
+      <button class="cabecalho" aria-expanded="false" aria-controls="sem5">
+        5º Semestre — 2026/1 | Nexus: Plataforma Analítica de Projetos Estratégicos
+        <svg class="seta" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="conteudo" id="sem5"><div>
+        <div class="corpo">
+
+          <span class="papel">Scrum Master</span><span class="papel">Dev Team</span>
+
+          <p>A parceira deste projeto foi a <strong>SIATT</strong>, empresa que gerencia projetos estratégicos complexos distribuídos em múltiplos domínios — engenharia, aquisição de materiais, apontamento de horas técnicas e supervisão de programas institucionais. O problema apresentado era a fragmentação dos dados operacionais: as informações estavam espalhadas em sistemas, planilhas e registros dispersos, sem padronização de identificadores entre as fontes. Com isso, não havia uma visão consolidada do consumo de recursos e do andamento das atividades, e identificar projetos acima do custo previsto ou em risco de atraso dependia de cruzamentos manuais e demorados.</p>
+
+          <p>A solução foi a <strong>Nexus</strong>, uma plataforma analítica que integra, estrutura e disponibiliza esses dados em um único ambiente. Um pipeline de <strong>ETL em Python com Polars</strong> coleta os arquivos CSV de projetos, programas, tarefas, horas, materiais, fornecedores e compras, valida e padroniza os registros e os carrega em um <strong>Data Warehouse em PostgreSQL</strong> modelado em estrela. Sobre essa base, uma <strong>API REST em Go</strong> expõe os dados consolidados, e o front-end em <strong>Nuxt</strong> apresenta dashboards de custo total por projeto, risco de atraso, custo versus execução, investimento por programa, consumo de materiais e horas por tarefa, com filtros analíticos, busca rápida e exportação em CSV e PDF. Toda a aplicação roda em contêineres <strong>Docker</strong>, com deploy contínuo e monitoramento, e foi entregue ao longo de três Sprints.</p>
+
+          <div class="repo">
+            <span>Repositório do projeto</span>
+            <a class="btn-repo" href="https://github.com/DenariusData/API-5SEM" target="_blank" rel="noopener">Acessar no GitHub</a>
+          </div>
+
+          <h3>Tecnologias Utilizadas</h3>
+          <div class="techs">
+            <div class="tech"><b>Go</b><small>API REST com chi e pgx, em arquitetura em camadas</small></div>
+            <div class="tech"><b>Nuxt e Vue.js</b><small>Interface dos dashboards analíticos</small></div>
+            <div class="tech"><b>Tailwind e Chart.js</b><small>Estilização e gráficos dos painéis</small></div>
+            <div class="tech"><b>Python e Polars</b><small>Pipeline de ETL e qualidade de dados</small></div>
+            <div class="tech"><b>PostgreSQL</b><small>Data Warehouse em modelo estrela</small></div>
+            <div class="tech"><b>Docker</b><small>Orquestração dos serviços com Docker Compose</small></div>
+            <div class="tech"><b>GitHub Actions</b><small>Deploy contínuo em runner self-hosted</small></div>
+            <div class="tech"><b>Prometheus, Grafana e Loki</b><small>Monitoramento de métricas e logs</small></div>
+          </div>
+
+          <h3>Contribuições Pessoais</h3>
+          <p>Atuei como <strong>Scrum Master</strong> e integrante do <strong>Dev Team</strong>. Como Scrum Master, facilitei as cerimônias das três Sprints e acompanhei o andamento das entregas pelo burndown, em um time de sete pessoas dividido entre três repositórios — front-end, back-end e ETL — integrados como submódulos. Boa parte do trabalho foi manter essas frentes sincronizadas, garantindo que as dependências entre o pipeline de dados, a API e os dashboards não travassem a Sprint.</p>
+
+          <p>No desenvolvimento, implementei na primeira Sprint o endpoint de <strong>dados consolidados</strong> da API em Go, criando as entidades, os repositórios em PostgreSQL, os casos de uso e os handlers das dimensões de projeto, material, fornecedor, responsável, solicitação, tarefa e tempo, além das tabelas fato de compras, estoque e execução, seguindo a separação em camadas adotada pelo back-end. Também construí o workflow de <strong>deploy contínuo com GitHub Actions</strong>, que a cada push na branch principal atualiza os submódulos no servidor e reconstrói os contêineres com Docker Compose.</p>
+
+          <h3>Hard Skills</h3>
+          <div class="hards">
+            <div class="hard"><div><b>Go</b><small>Desenvolvi o endpoint de dados consolidados, com handlers, casos de uso e repositórios para dimensões e fatos do DW.</small></div><span class="nivel inter">Intermediário</span></div>
+            <div class="hard"><div><b>PostgreSQL e Data Warehouse</b><small>Escrevi as consultas sobre o modelo estrela que alimentam a API, cruzando dimensões e tabelas fato.</small></div><span class="nivel inter">Intermediário</span></div>
+            <div class="hard"><div><b>Arquitetura em camadas</b><small>Organizei o código separando entidades, repositórios, casos de uso e handlers, com injeção de dependências.</small></div><span class="nivel inter">Intermediário</span></div>
+            <div class="hard"><div><b>Docker e Docker Compose</b><small>Trabalhei com a orquestração dos serviços de banco, API, ETL e front-end em contêineres.</small></div><span class="nivel inter">Intermediário</span></div>
+            <div class="hard"><div><b>GitHub Actions (CI/CD)</b><small>Criei o pipeline de deploy automático em runner self-hosted, com atualização de submódulos e rebuild dos contêineres.</small></div><span class="nivel basico">Básico</span></div>
+          </div>
+
+          <h3>Soft Skills</h3>
+          <p>Voltei ao papel de Scrum Master quatro semestres depois da primeira experiência, e a diferença foi grande. No primeiro semestre, eu aprendia a função enquanto a exercia; desta vez, já entendia o propósito de cada cerimônia e pude focar no que realmente fazia diferença para o time. O desafio passou a ser outro: coordenar um time maior, dividido entre três repositórios com ritmos diferentes, em que um atraso no ETL ou na API refletia diretamente nos dashboards.</p>
+
+          <p>O principal aprendizado foi equilibrar a facilitação com a execução técnica. Atuar ao mesmo tempo como Scrum Master e desenvolvedor exigiu disciplina para não deixar uma função engolir a outra. Passei a antecipar as dependências entre as frentes já no planejamento, alinhando com cada parte do time o que precisava estar pronto primeiro, e a tratar a automação do deploy como parte do meu papel: quanto menos atrito houvesse para colocar uma entrega no ar, mais o time conseguia focar no produto.</p>
+
+        </div>
+      </div></div>
+    </section>
+
     <!-- ---------- LEGENDA ---------- -->
     <section class="item">
       <button class="cabecalho" aria-expanded="false" aria-controls="legenda">
