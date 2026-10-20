@@ -437,14 +437,17 @@ body{
       <div class="chip"><span>💚</span>Vue.js</div>
       <div class="chip"><span>⚛️</span>React</div>
       <div class="chip"><span>🐍</span>Python</div>
+      <div class="chip"><span>🎸</span>Django</div>
       <div class="chip"><span>🐹</span>Golang</div>
       <div class="chip"><span>🐬</span>MySQL</div>
       <div class="chip"><span>🐘</span>PostgreSQL</div>
+      <div class="chip"><span>🧭</span>pgvector</div>
       <div class="chip"><span>🍀</span>MongoDB</div>
       <div class="chip"><span>🔶</span>Oracle</div>
       <div class="chip"><span>🏛️</span>Data Warehouse</div>
       <div class="chip"><span>🦙</span>Ollama</div>
       <div class="chip"><span>🤖</span>LLM</div>
+      <div class="chip"><span>🔎</span>RAG</div>
       <div class="chip"><span>🤗</span>Hugging Face</div>
     </div>
 
@@ -719,6 +722,64 @@ body{
           <p><strong>Mediação de conflitos.</strong> Em alguns momentos, integrantes de frentes diferentes discordavam sobre o que deveria ser feito primeiro, já que cada um olhava para a própria parte. Meu papel foi ouvir os dois lados sem tomar partido e trazer a discussão de volta para o objetivo da Sprint e para o que o cliente precisava ver funcionando. Aprendi que, na maioria das vezes, o conflito não era sobre quem estava certo, e sim sobre a falta de uma prioridade comum que todos enxergassem.</p>
 
           <p><strong>Gestão do tempo entre dois papéis.</strong> Atuar ao mesmo tempo como Scrum Master e desenvolvedor exigiu disciplina para não deixar uma função engolir a outra. Nas semanas em que minhas tarefas técnicas apertavam, a tentação era deixar a facilitação em segundo plano; nas semanas de muitas dúvidas do time, era o desenvolvimento que ficava parado. Passei a reservar momentos fixos para cada papel e a ser transparente com o time sobre a minha própria capacidade no planejamento, assumindo menos tarefas técnicas para não comprometer o acompanhamento das pessoas.</p>
+
+        </div>
+      </div></div>
+    </section>
+
+    <!-- ---------- SEMESTRE 6 ---------- -->
+    <section class="item">
+      <button class="cabecalho" aria-expanded="false" aria-controls="sem6">
+        6º Semestre — 2026/2 | AkaVision: Classificador de Documentos Técnicos
+        <svg class="seta" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="conteudo" id="sem6"><div>
+        <div class="corpo">
+
+          <span class="papel">Dev Team</span>
+
+          <p>A parceira deste projeto foi a <strong>AKAER</strong>, empresa de engenharia do setor aeronáutico que lida diariamente com um grande volume de documentos técnicos — normas, procedimentos internos, manuais, relatórios e documentos de fabricantes. O problema apresentado era o custo do processo manual de gestão desse acervo: cada documento precisa ser lido por um profissional, associado às normas e aos documentos relacionados já armazenados e etiquetado para facilitar buscas futuras. O trabalho consome horas, está sujeito a erros e, por envolver conteúdo sigiloso, não pode ser simplesmente enviado a serviços de IA externos.</p>
+
+          <p>A solução é o <strong>AkaVision</strong>, uma plataforma de classificação e consulta de documentos técnicos que roda inteiramente em <strong>infraestrutura local</strong>. O documento é enviado com seus metadados, passa por um fluxo de validação em que quem envia não pode aprovar o próprio arquivo e, depois de aprovado, é processado para busca semântica: o texto é extraído, dividido em trechos e convertido em vetores pelo modelo <strong>bge-m3</strong>, armazenados no <strong>PostgreSQL com pgvector</strong>. Sobre essa base, o usuário faz perguntas em linguagem natural e recebe respostas geradas por um <strong>LLM executado via Ollama</strong>, sempre citando documento, revisão e página. O acesso combina usuário, área e nível de sigilo (Público, Interno, Restrito e Confidencial), e a conformidade com a <strong>LGPD</strong> é tratada com banco separado para dados pessoais, termos de uso versionados e log de auditoria. O back-end foi construído em <strong>Python com Django</strong> e o front-end em <strong>Vue.js</strong>, ao longo de três Sprints.</p>
+
+          <div class="repo">
+            <span>Repositório do projeto</span>
+            <a class="btn-repo" href="https://github.com/DenariusData/API-6SEM" target="_blank" rel="noopener">Acessar no GitHub</a>
+          </div>
+
+          <h3>Tecnologias Utilizadas</h3>
+          <div class="techs">
+            <div class="tech"><b>Python e Django</b><small>API REST, regras de negócio e autenticação JWT</small></div>
+            <div class="tech"><b>Vue.js e Vite</b><small>Interface de upload, validação e perguntas</small></div>
+            <div class="tech"><b>PostgreSQL e pgvector</b><small>Acervo, metadados e busca vetorial</small></div>
+            <div class="tech"><b>Ollama</b><small>Modelos locais bge-m3 (embeddings) e Llama 3.2</small></div>
+            <div class="tech"><b>PyMuPDF</b><small>Extração de texto página a página dos PDFs</small></div>
+            <div class="tech"><b>Docker</b><small>Bancos de acervo e de dados pessoais isolados</small></div>
+            <div class="tech"><b>Jira</b><small>Gestão das Sprints e das User Stories</small></div>
+          </div>
+
+          <h3>Contribuições Pessoais</h3>
+          <p>Atuei como integrante do <strong>Dev Team</strong>, com foco no back-end e na parte de inteligência artificial. Na primeira Sprint, construí a base do <strong>pipeline de RAG</strong> do projeto: scripts para baixar um acervo de normas técnicas públicas do EverySpec, extrair o texto dos PDFs, dividir o conteúdo em trechos com filtro de qualidade, gerar os embeddings com o bge-m3 e gravá-los no PostgreSQL com pgvector. Em seguida, desenvolvi o <strong>endpoint de perguntas</strong>, que busca os trechos mais relevantes, envia o contexto ao LLM local e devolve a resposta com as fontes citadas, registrando os tempos de busca e de geração para acompanhar a meta de desempenho. Também integrei a tela de perguntas do front-end em Vue.js a esse endpoint.</p>
+
+          <p>Na segunda Sprint, implementei a <strong>persistência do upload</strong> de documentos, com validação dos dezesseis campos obrigatórios definidos pelo cliente, gravação do arquivo em pasta privada, controle de duplicidade por identificador e revisão e endpoints de opções para os campos do formulário. Desenvolvi o <strong>processamento automático do documento aprovado</strong>, que, ao fim da validação, extrai, fragmenta e vetoriza o documento em segundo plano, deixando-o disponível para consulta pela IA. Por fim, trabalhei no <strong>log de auditoria</strong> exigido pela LGPD, gravado automaticamente por signals do Django e sem armazenar nenhum dado pessoal. Todas as entregas foram acompanhadas de testes automatizados e documentação.</p>
+
+          <h3>Hard Skills</h3>
+          <div class="hards">
+            <div class="hard"><div><b>RAG e LLM local (Ollama)</b><small>Construí o pipeline de extração, fragmentação, embeddings e geração de respostas com citação de fontes, sem depender de APIs externas.</small></div><span class="nivel inter">Intermediário</span></div>
+            <div class="hard"><div><b>Python e Django</b><small>Desenvolvi endpoints, serviços, models, migrations e signals da API, com autenticação por token.</small></div><span class="nivel inter">Intermediário</span></div>
+            <div class="hard"><div><b>PostgreSQL e pgvector</b><small>Modelei o armazenamento de trechos e vetores e implementei a busca por similaridade sobre o acervo.</small></div><span class="nivel inter">Intermediário</span></div>
+            <div class="hard"><div><b>Testes automatizados</b><small>Escrevi testes para upload, perguntas, processamento automático e auditoria, cobrindo os cenários de erro de cada fluxo.</small></div><span class="nivel inter">Intermediário</span></div>
+            <div class="hard"><div><b>LGPD e auditoria</b><small>Implementei o log de ações imutável que registra quem fez o quê sem guardar nome, e-mail ou valores de campos.</small></div><span class="nivel basico">Básico</span></div>
+          </div>
+
+          <h3>Soft Skills</h3>
+          <p>Neste semestre, atuei somente como desenvolvedor, sem acumular um papel de gestão — algo que não acontecia desde o início do curso. Isso me permitiu mergulhar fundo na parte técnica, mas também trouxe uma responsabilidade diferente: boa parte do produto dependia do pipeline de IA, e as outras frentes do time precisavam que essa base estivesse pronta para seguir.</p>
+
+          <p><strong>Autonomia diante do desconhecido.</strong> O projeto exigia uma solução de RAG rodando localmente, algo que o time ainda não tinha construído. Precisei pesquisar, testar alternativas e tomar decisões técnicas sem um caminho pronto — do tamanho dos trechos ao limite mínimo de similaridade. Quando o hardware disponível não dava conta de gerar os embeddings em tempo hábil, busquei uma alternativa com GPU no Google Colab e validei que os vetores gerados lá eram equivalentes aos do ambiente local antes de importá-los.</p>
+
+          <p><strong>Documentação como forma de comunicação.</strong> Como o restante do time dependia do pipeline sem necessariamente conhecer seus detalhes, fiz questão de documentar cada etapa, as variáveis de configuração e os motivos das decisões tomadas. Isso reduziu dúvidas repetidas e permitiu que outros integrantes executassem e reaproveitassem o pipeline sem precisar de mim para cada passo.</p>
+
+          <p><strong>Trabalho dentro das decisões de produto.</strong> Sem o papel de PO, passei a receber as regras de negócio já definidas — como a separação entre trecho extraído e interpretação da IA ou a proibição de expor dados pessoais no log. Aprendi a respeitar essas decisões mesmo quando outra solução técnica parecia mais simples, e a levar ao PO os pontos em que a regra gerava um custo de implementação relevante, em vez de contorná-la por conta própria.</p>
 
         </div>
       </div></div>
